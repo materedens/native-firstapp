@@ -3,7 +3,7 @@ import { Text, View, Button, Image } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#63c5da' }}>
 
             <Image
                 style={{ width: 100, height: 100 }}
@@ -15,7 +15,7 @@ const HomeScreen = ({ navigation }) => {
             {/* Moving between screens */}
             <Button
                 title="Go to Details"
-                onPress={() => navigation.navigate('Details')}
+                onPress={() => navigation.navigate('SplashScreen')}
             />
         </View>
     );
