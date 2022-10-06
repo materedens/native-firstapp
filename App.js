@@ -25,6 +25,7 @@ function App() {
       }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{
           title: 'Overview'
+
         }} />
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="Accounts" component={AccountsScreen} />
