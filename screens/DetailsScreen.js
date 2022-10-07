@@ -1,15 +1,15 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, StatusBar, StyleSheet } from 'react-native';
 
 const DetailsScreen = ({ navigation }) => {
     return (
         <View style={{
-            flex: 1, alignItems: 'center', justifyContent: 'center',
-            backgroundColor: '#63c5da'
+            flex: 1, alignItems: 'center', justifyContent: 'center'
         }}>
-            <Text>Details Screen</Text>
+            <StatusBar backgroundColor='#63c5da' barStyle="light-content" />
+            <Text style={styles.text}>Details Screen</Text>
             {/* Moving between screens */}
-            <Button
+            {/* <Button
                 title="Go to Details... again"
                 onPress={() => navigation.push('Details')}
             />
@@ -22,9 +22,21 @@ const DetailsScreen = ({ navigation }) => {
             <Button
                 title="Go back to first screen in stack"
                 onPress={() => navigation.popToTop()}
-            />
+            /> */}
         </View>
     );
 }
 
-export default DetailsScreen
+export default DetailsScreen;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    text: {
+        fontWeight: 'bold',
+        fontSize: 16
+    }
+});

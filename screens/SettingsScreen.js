@@ -1,21 +1,19 @@
 import React from 'react';
-import { Text, View, Button, Image, StatusBar, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const SettingsScreen = ({ navigation }) => {
     return (
         <View style={{
             flex: 1, alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
         }}>
-            <StatusBar backgroundColor='#63c5da' barStyle="light-content" />
-
-            <Text style={styles.text}>Home Screen</Text>
+            <Text style={styles.text}>Settings Screen</Text>
 
         </View>
-    );
+    )
 }
 
-export default HomeScreen;
+export default SettingsScreen;
 
 const styles = StyleSheet.create({
     container: {
