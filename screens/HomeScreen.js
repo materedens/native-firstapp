@@ -15,7 +15,7 @@ const HomeScreen = ({ navigation }) => {
             {/* Moving between screens */}
             <Button
                 title="Go to Details"
-                onPress={() => navigation.navigate('SplashScreen')}
+                onPress={() => navigation.navigate('Details')}
             />
         </View>
     );

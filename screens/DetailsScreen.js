@@ -3,7 +3,10 @@ import { Text, View, Button } from 'react-native';
 
 const DetailsScreen = ({ navigation }) => {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{
+            flex: 1, alignItems: 'center', justifyContent: 'center',
+            backgroundColor: '#63c5da'
+        }}>
             <Text>Details Screen</Text>
             {/* Moving between screens */}
             <Button
