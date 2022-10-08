@@ -4,21 +4,28 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-// Import Screens
 
+// Import Screens
+import OnboardingScreen from './screens/OnboardingScreen';
+import SignInScreen from './screens/SignInScreen';
+// import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import AccountsScreen from './screens/AccountsScreen';
 import SettingsScreen from './screens/SettingsScreen';
-import SplashScreen from './screens/SplashScreen';
+// import SplashScreen from './screens/SplashScreen';
 
-const Stack = createNativeStackNavigator();
+const AppStack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
-function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      <AppStack.Navigator>
+        <AppStack.Screen name='Onboarding' component={OnboardingScreen} />
+        <AppStack.Screen name='SignIn' component={SignInScreen} />
+      </AppStack.Navigator>
+      {/* <Tab.Navigator
         screenOptions={{
           headerStyle: {
             backgroundColor: '#63c5da',
@@ -58,7 +65,7 @@ function App() {
             <Icon name="ios-settings" color={color} size={15} />
           ),
         }} />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
     </NavigationContainer>
   );
 }

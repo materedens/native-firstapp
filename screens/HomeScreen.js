@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, Image, StatusBar, StyleSheet } from 'react-native';
+import { Text, View, StatusBar, StyleSheet } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
     return (
