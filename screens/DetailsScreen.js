@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Button, StatusBar, StyleSheet } from 'react-native';
+import { Text, View, Button, StatusBar, StyleSheet, ImageBackground } from 'react-native';
 
 const DetailsScreen = ({ navigation }) => {
     return (
@@ -7,7 +7,11 @@ const DetailsScreen = ({ navigation }) => {
             flex: 1, alignItems: 'center', justifyContent: 'center'
         }}>
             <StatusBar backgroundColor='#63c5da' barStyle="light-content" />
-            <Text style={styles.text}>Details Screen</Text>
+            <ImageBackground source={require('../assets/image1.jpg')}
+                style={{ width: "100%", height: "100%" }}>
+                <Text style={styles.text}>Details Screen</Text>
+            </ImageBackground>
+
             {/* Moving between screens */}
             {/* <Button
                 title="Go to Details... again"
@@ -37,6 +41,12 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 42,
+        textAlign: 'center',
+        fontFamily: "Roboto",
+        marginTop: '100%',
+        color: '#fff',
+        paddingHorizontal: 40,
+        lineHeight: 84,
     }
 });

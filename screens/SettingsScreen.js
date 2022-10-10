@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground } from 'react-native';
 
 const SettingsScreen = ({ navigation }) => {
     return (
@@ -7,8 +7,10 @@ const SettingsScreen = ({ navigation }) => {
             flex: 1, alignItems: 'center',
             justifyContent: 'center',
         }}>
-            <Text style={styles.text}>Settings Screen</Text>
-
+            <ImageBackground source={require('../assets/image1.jpg')}
+                style={{ width: "100%", height: "100%" }}>
+                <Text style={styles.text}>Settings Screen</Text>
+            </ImageBackground>
         </View>
     )
 }
@@ -23,6 +25,12 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 42,
+        textAlign: 'center',
+        fontFamily: "Roboto",
+        marginTop: '100%',
+        color: '#fff',
+        paddingHorizontal: 40,
+        lineHeight: 84,
     }
 });

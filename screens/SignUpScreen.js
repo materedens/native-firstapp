@@ -83,7 +83,7 @@ const SignUpScreen = ({ navigation }) => {
 
                     <Text style={styles.signIn}>SignIn</Text>
                     <TouchableOpacity
-                        onPress={() => navigation.goBack()} style={[styles.signIn, {
+                        onPress={() => navigation.navigate('SignInScreen')} style={[styles.signIn, {
                             borderColor: '#63c5da',
                             borderWidth: 1,
                             marginTop: 15
