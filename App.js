@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -13,6 +14,7 @@ import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import AccountsScreen from './screens/AccountsScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import SearchScreen from './screens/SearchScreen';
 // import SplashScreen from './screens/SplashScreen';
 
 const AppStack = createNativeStackNavigator();
@@ -21,6 +23,7 @@ const Tab = createMaterialBottomTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor='#63c5da' barStyle="light-content" />
       {/* <AppStack.Navigator>
         <AppStack.Screen name='Onboarding' component={OnboardingScreen} />
         <AppStack.Screen name='SignIn' component={SignInScreen} />
@@ -50,6 +53,13 @@ const App = () => {
           tabBarColor: '#63c5da',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-notifications" color={color} size={15} />
+          ),
+        }} />
+        <Tab.Screen name="Search" component={SearchScreen} options={{
+          tabBarLabel: 'Search',
+          tabBarColor: '#63c5da',
+          tabBarIcon: ({ color }) => (
+            <Icon name="ios-search" color={color} size={15} />
           ),
         }} />
         <Tab.Screen name="Accounts" component={AccountsScreen} options={{

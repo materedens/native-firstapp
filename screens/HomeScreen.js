@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import {
-    Text, View, StatusBar,
+    Text, View,
     StyleSheet, SafeAreaView,
-    TextInput, TouchableOpacity, FlatList, Dimensions
+    TextInput, TouchableOpacity, FlatList, Dimensions, Image
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import cars from '../assets/cars';
@@ -11,13 +11,13 @@ const width = Dimensions.get('screen').width / 2 - 30;
 
 const HomeScreen = ({ navigation }) => {
     //Arraylist
-    const cars = ['LUXURY', 'SUV', 'TOYOTA', 'ISUZU'];
+    const vehicles = ['LUXURY', 'SUV', 'TOYOTA', 'ISUZU'];
     const [carIndex, setCarIndex] = React.useState(0)
 
     const CarList = () => {
         return (
             <View style={styles.carContainer}>
-                {cars.map((item, index) => (
+                {vehicles.map((item, index) => (
                     <TouchableOpacity key={index}
                         activeOpacity={0.8}
                         onPress={() => setCarIndex(index)}>
@@ -31,16 +31,73 @@ const HomeScreen = ({ navigation }) => {
         );
     };
     const Card = ({ car }) => {
-        <View style={styles.card}>
+        return (
+            <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => navigation.navigate('Details', car)}>
+                <View style={styles.card}>
+                    <View style={{ alignItems: 'flex-end' }}>
+                        <View style={{
+                            width: 30,
+                            height: 30,
+                            borderRadius: 15,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: car.like ? 'rgba(245,42,42,0.2)' : 'rgba(0,0,0,0.2)',
+                        }}>
+                            <Icon name='favorite' size={18} color={car.like ? 'rgba(245,42,42,0.2)' : 'rgba(0,0,0,0.2)'} />
+                        </View>
+                    </View>
+                    <View style={{
+                        alignItems: 'center',
+                        height: 100
+                    }}>
+                        <Image source={car.img} style={{
+                            flex: 1,
+                            resizeMode: 'contain'
+                        }} />
+                    </View>
+                    <Text style={{
+                        fontSize: 17,
+                        fontWeight: 'bold',
+                        marginTop: 10
+                    }}>{car.name}
+                    </Text>
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        marginTop: 5,
+                    }}>
+                        <Text style={{
+                            fontSize: 19,
+                            fontWeight: 'bold'
+                        }}>${car.price}
+                        </Text>
+                        <View style={{
+                            height: 25,
+                            width: 25,
+                            backgroundColor: '#63c5da',
+                            borderRadius: 5,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <Text style={{
+                                fontSize: 22,
+                                fontWeight: 'bold',
+                                color: '#fff',
+                            }}>+</Text>
+                        </View>
+                    </View>
+                </View>
 
-        </View>
+            </TouchableOpacity>
+        );
     };
     return (
         <SafeAreaView style={{
             flex: 1, paddingHorizontal: 20,
             backgroundColor: '#fff'
         }}>
-            <StatusBar backgroundColor='#63c5da' barStyle="light-content" />
             <View style={styles.header}>
                 <View>
                     <Text style={styles.text}>Welcome to</Text>

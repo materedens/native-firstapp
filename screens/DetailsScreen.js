@@ -1,52 +1,85 @@
-import React from 'react'
-import { Text, View, Button, StatusBar, StyleSheet, ImageBackground } from 'react-native';
+import React from 'react';
+import { Text, View, StyleSheet, SafeAreaView, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const DetailsScreen = ({ navigation }) => {
+const DetailsScreen = ({ navigation, route }) => {
+    const car = route.params;
+
     return (
-        <View style={{
-            flex: 1, alignItems: 'center', justifyContent: 'center'
+        <SafeAreaView style={{
+            flex: 1,
+            backgroundColor: '#fff',
         }}>
-            <StatusBar backgroundColor='#63c5da' barStyle="light-content" />
-            <ImageBackground source={require('../assets/image1.jpg')}
-                style={{ width: "100%", height: "100%" }}>
-                <Text style={styles.text}>Details Screen</Text>
-            </ImageBackground>
+            <View style={styles.header}>
+                <Icon name='arrow-back' size={28} onPress={() => navigation.goBack()} />
+                <Icon name='shopping-cart' size={28} />
+            </View>
+            <View style={styles.imgContainer}>
+                <Image source={car.img} style={{ resizeMode: 'contain', flex: 1 }} />
+            </View>
+            <View style={styles.detailsContainer}>
+                <View style={{
+                    marginTop: 20,
+                    marginLeft: 20,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}>
+                    <Text style={{
+                        fontSize: 20,
+                        fontWeight: 'bold',
+                        fontFamily: 'Roboto',
+                    }}>{car.name}</Text>
 
-            {/* Moving between screens */}
-            {/* <Button
-                title="Go to Details... again"
-                onPress={() => navigation.push('Details')}
-            />
-            <Button
-                title="Go to Accounts"
-                onPress={() => navigation.navigate('Accounts')}
-            />
-            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-            <Button title="Go back" onPress={() => navigation.goBack()} />
-            <Button
-                title="Go back to first screen in stack"
-                onPress={() => navigation.popToTop()}
-            /> */}
-        </View>
+                    <View style={styles.tag}>
+                        <Text style={{
+                            fontSize: 16,
+                            fontWeight: 'bold',
+                            color: '#fff',
+                            marginLeft: 15
+                        }}>${car.price}</Text>
+                    </View>
+                </View>
+
+            </View>
+        </SafeAreaView>
+
     );
-}
+};
 
 export default DetailsScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
     },
-    text: {
-        fontWeight: 'bold',
-        fontSize: 42,
-        textAlign: 'center',
-        fontFamily: "Roboto",
-        marginTop: '100%',
-        color: '#fff',
-        paddingHorizontal: 40,
-        lineHeight: 84,
-    }
+    header: {
+        paddingHorizontal: 20,
+        marginTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    imgContainer: {
+        flex: 0.45,
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    detailsContainer: {
+        flex: 0.55,
+        marginBottom: 7,
+        marginHorizontal: 7,
+        borderRadius: 20,
+        backgroundColor: '#f2f2f2',
+        paddingBottom: 30,
+        marginTop: 30,
+    },
+    tag: {
+        backgroundColor: '#63c5da',
+        width: 80,
+        height: 40,
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
+        justifyContent: 'center',
+    },
 });
