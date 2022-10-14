@@ -40,7 +40,38 @@ const DetailsScreen = ({ navigation, route }) => {
                         }}>${car.price}</Text>
                     </View>
                 </View>
+                <View style={{ paddingHorizontal: 20, marginTop: 10 }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold' }}>About</Text>
+                    <Text style={{
+                        marginTop: 20,
+                        lineHeight: 22,
+                        color: '#36454F',
+                        fontFamily: 'Roboto'
+                    }}>{car.about}</Text>
+                    <View style={{
+                        marginTop: 20,
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <View style={styles.borderBtn}>
+                                <Text style={styles.borderBtnText}>-</Text>
+                            </View>
+                            <Text style={{ fontSize: 20, fontWeight: 'bold', marginHorizontal: 10 }}>1</Text>
+                            <View style={styles.borderBtn}>
+                                <Text style={styles.borderBtnText}>+</Text>
+                            </View>
 
+                        </View>
+                        <View style={styles.buyBtn}>
+                            <Text style={{
+                                fontWeight: 'bold',
+                                fontSize: '20',
+                                color: '#fff',
+                            }}>Buy</Text>
+                        </View>
+                    </View>
+                </View>
             </View>
         </SafeAreaView>
 
@@ -82,4 +113,25 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 20,
         justifyContent: 'center',
     },
+    borderBtn: {
+        borderRadius: 5,
+        borderColor: '#36454F',
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 40,
+        width: 60,
+    },
+    borderBtnText: {
+        fontWeight: 'bold',
+        fontSize: 25,
+    },
+    buyBtn: {
+        backgroundColor: '#63c5da',
+        height: 50,
+        width: 150,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 });

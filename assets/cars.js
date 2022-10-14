@@ -5,7 +5,7 @@ const cars = [
         like: true,
         price: 3000,
         img: require('../assets/image1.jpg'),
-        about: 'Luxury vehicle'
+        about: 'The Ford Ranger is available in two body styles. The Ranger SuperCab has four seats, while the Ranger SuperCrew has five seats. The front seats ...'
     },
 
     {
