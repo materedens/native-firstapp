@@ -10,7 +10,7 @@ import cars from '../assets/cars';
 const width = Dimensions.get('screen').width / 2 - 30;
 
 const HomeScreen = ({ navigation }) => {
-    //Arraylist
+    //  Category list
     const vehicles = ['LUXURY', 'SUV', 'TOYOTA', 'ISUZU'];
     const [carIndex, setCarIndex] = React.useState(0)
 
@@ -45,7 +45,9 @@ const HomeScreen = ({ navigation }) => {
                             justifyContent: 'center',
                             backgroundColor: car.like ? 'rgba(245,42,42,0.2)' : 'rgba(0,0,0,0.2)',
                         }}>
-                            <Icon name='favorite' size={18} color={car.like ? 'rgba(245,42,42,0.2)' : 'rgba(0,0,0,0.2)'} />
+                            <TouchableOpacity>
+                                <Icon name='favorite' size={18} color={car.like ? 'rgba(245,42,42,0.2)' : 'rgba(0,0,0,0.2)'} />
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <View style={{
@@ -54,7 +56,7 @@ const HomeScreen = ({ navigation }) => {
                     }}>
                         <Image source={car.img} style={{
                             flex: 1,
-                            resizeMode: 'contain'
+                            resizeMode: 'contain',
                         }} />
                     </View>
                     <Text style={{
@@ -73,20 +75,24 @@ const HomeScreen = ({ navigation }) => {
                             fontWeight: 'bold'
                         }}>${car.price}
                         </Text>
-                        <View style={{
-                            height: 25,
-                            width: 25,
-                            backgroundColor: '#63c5da',
-                            borderRadius: 5,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
-                            <Text style={{
-                                fontSize: 22,
-                                fontWeight: 'bold',
-                                color: '#fff',
-                            }}>+</Text>
-                        </View>
+                        <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => navigation.navigate('Details', car)}>
+                            <View style={{
+                                height: 25,
+                                width: 25,
+                                backgroundColor: '#63c5da',
+                                borderRadius: 5,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}>
+                                <Text style={{
+                                    fontSize: 22,
+                                    fontWeight: 'bold',
+                                    color: '#fff',
+                                }}>+</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, SafeAreaView, Image } from 'react-native';
+import { Text, View, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const DetailsScreen = ({ navigation, route }) => {
@@ -53,27 +53,38 @@ const DetailsScreen = ({ navigation, route }) => {
                         flexDirection: 'row',
                         justifyContent: 'space-between',
                     }}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <View style={styles.borderBtn}>
-                                <Text style={styles.borderBtnText}>-</Text>
-                            </View>
-                            <Text style={{ fontSize: 20, fontWeight: 'bold', marginHorizontal: 10 }}>1</Text>
-                            <View style={styles.borderBtn}>
-                                <Text style={styles.borderBtnText}>+</Text>
-                            </View>
 
-                        </View>
-                        <View style={styles.buyBtn}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <TouchableOpacity>
+                                <View style={styles.borderBtn}>
+                                    <Text style={styles.borderBtnText}>-</Text>
+                                </View>
+                            </TouchableOpacity>
                             <Text style={{
+                                fontSize: 20,
                                 fontWeight: 'bold',
-                                fontSize: '20',
-                                color: '#fff',
-                            }}>Buy</Text>
+                                marginHorizontal: 10
+                            }}>1</Text>
+                            <TouchableOpacity>
+                                <View style={styles.borderBtn}>
+                                    <Text style={styles.borderBtnText}>+</Text>
+                                </View>
+                            </TouchableOpacity>
                         </View>
+                        <TouchableOpacity>
+                            <View style={styles.buyBtn}>
+                                <Text style={{
+                                    fontWeight: 'bold',
+                                    fontSize: 18,
+                                    color: '#fff',
+                                    fontFamily: 'Roboto',
+                                }}>Buy Now</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
-        </SafeAreaView>
+        </SafeAreaView >
 
     );
 };
@@ -119,8 +130,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 40,
-        width: 60,
+        height: 30,
+        width: 50,
     },
     borderBtnText: {
         fontWeight: 'bold',
@@ -128,8 +139,8 @@ const styles = StyleSheet.create({
     },
     buyBtn: {
         backgroundColor: '#63c5da',
-        height: 50,
-        width: 150,
+        height: 40,
+        width: 75,
         borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center',
